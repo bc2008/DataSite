@@ -1,0 +1,347 @@
+<!--
+	Name: Bryan Cortez
+	Class: N222
+	Assignment: Data Driven Site
+	
+	-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Final Project</title>
+
+<link rel="stylesheet" type="text/css" href="style.css" >
+
+<link rel='stylesheet' href="css/prettify.css" />
+<script src="google-code-prettify/prettify.js"></script>
+
+<style>
+	#navBar {
+		font-family: Arial, Helvetica, sans-serif;
+		text-color: #ffffff;
+		text-align:center;
+		color:#FFF;
+		font-weight: bold;
+	}
+</style>
+
+<script language="javascript" type="text/javascript" src="jquery-1.8.3.js"></script>
+<script src="application.js"></script>
+
+<script type="text/javascript">
+function dosearch() {
+var sf=document.searchform;
+var submitto = sf.sengines.options[sf.sengines.selectedIndex].value + escape(sf.searchterms.value);
+window.open(submitto);
+return false;
+}
+</script>
+
+<script>
+	$(function() {
+	$("<pre />", {
+		"html":   '&lt;!DOCTYPE html>\n&lt;html>\n' + 
+				$("html")
+					.html()
+					.replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
+					.replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>') + 
+				'\n&lt;/html>'
+	}).appendTo("#source-code");
+});
+</script>
+
+<script>
+	(function(){var requirejs,require,define,__inflate;(function(e){function a(e,t){var n=t&&t.split("/"),i=r.map,s=i&&i["*"]||{},o,u,a,f,l,c,h;if(e&&e.charAt(0)==="."&&t){n=n.slice(0,n.length-1),e=n.concat(e.split("/"));for(l=0;h=e[l];l++)if(h===".")e.splice(l,1),l-=1;else if(h===".."){if(l===1&&(e[2]===".."||e[0]===".."))return!0;l>0&&(e.splice(l-1,2),l-=2)}e=e.join("/")}if((n||s)&&i){o=e.split("/");for(l=o.length;l>0;l-=1){u=o.slice(0,l).join("/");if(n)for(c=n.length;c>0;c-=1){a=i[n.slice(0,c).join("/")];if(a){a=a[u];if(a){f=a;break}}}f=f||s[u];if(f){o.splice(0,l,f),e=o.join("/");break}}}return e}function f(t,n){return function(){return u.apply(e,s.call(arguments,0).concat([t,n]))}}function l(e){return function(t){return a(t,e)}}function c(e){return function(n){t[e]=n}}function h(r){if(n.hasOwnProperty(r)){var s=n[r];delete n[r],i[r]=!0,o.apply(e,s)}if(!t.hasOwnProperty(r))throw new Error("No "+r);return t[r]}function p(e,t){var n,r,i=e.indexOf("!");return i!==-1?(n=a(e.slice(0,i),t),e=e.slice(i+1),r=h(n),r&&r.normalize?e=r.normalize(e,l(t)):e=a(e,t)):e=a(e,t),{f:n?n+"!"+e:e,n:e,p:r}}function d(e){return function(){return r&&r.config&&r.config[e]||{}}}var t={},n={},r={},i={},s=[].slice,o,u;o=function(r,s,o,u){var a=[],l,v,m,g,y,b;u=u||r,typeof o=="string"&&(o=__inflate(r,o));if(typeof o=="function"){s=!s.length&&o.length?["require","exports","module"]:s;for(b=0;b<s.length;b++){y=p(s[b],u),m=y.f;if(m==="require")a[b]=f(r);else if(m==="exports")a[b]=t[r]={},l=!0;else if(m==="module")v=a[b]={id:r,uri:"",exports:t[r],config:d(r)};else if(t.hasOwnProperty(m)||n.hasOwnProperty(m))a[b]=h(m);else if(y.p)y.p.load(y.n,f(u,!0),c(m),{}),a[b]=t[m];else if(!i[m])throw new Error(r+" missing "+m)}g=o.apply(t[r],a);if(r)if(v&&v.exports!==e&&v.exports!==t[r])t[r]=v.exports;else if(g!==e||!l)t[r]=g}else r&&(t[r]=o)},requirejs=require=u=function(t,n,i,s){return typeof t=="string"?h(p(t,n).f):(t.splice||(r=t,n.splice?(t=n,n=i,i=null):t=e),n=n||function(){},s?o(e,t,n,i):setTimeout(function(){o(e,t,n,i)},15),u)},u.config=function(e){return r=e,u},define=function(e,t,r){t.splice||(r=t,t=[]),n[e]=[e,t,r]},define.amd={jQuery:!0}})(),__inflate=function(name,src){var r;return eval(["r = function(a,b,c){","\n};\n//@ sourceURL="+name+"\n"].join(src)),r},define("lib/api/events",["require","exports","module"],function(e,t,n){t.api={LOAD_PROGRESS:"loadProgress",PLAY_PROGRESS:"playProgress",PLAY:"play",PAUSE:"pause",FINISH:"finish",SEEK:"seek",READY:"ready",OPEN_SHARE_PANEL:"sharePanelOpened",CLICK_DOWNLOAD:"downloadClicked",CLICK_BUY:"buyClicked",ERROR:"error"},t.bridge={REMOVE_LISTENER:"removeEventListener",ADD_LISTENER:"addEventListener"}}),define("lib/api/getters",["require","exports","module"],function(e,t,n){n.exports={GET_VOLUME:"getVolume",GET_DURATION:"getDuration",GET_POSITION:"getPosition",GET_SOUNDS:"getSounds",GET_CURRENT_SOUND:"getCurrentSound",GET_CURRENT_SOUND_INDEX:"getCurrentSoundIndex",IS_PAUSED:"isPaused"}}),define("lib/api/setters",["require","exports","module"],function(e,t,n){n.exports={PLAY:"play",PAUSE:"pause",TOGGLE:"toggle",SEEK_TO:"seekTo",SET_VOLUME:"setVolume",NEXT:"next",PREV:"prev",SKIP:"skip"}}),define("lib/api/api",["require","exports","module","lib/api/events","lib/api/getters","lib/api/setters"],function(e,t,n){function m(e){return!!(e===""||e&&e.charCodeAt&&e.substr)}function g(e){return!!(e&&e.constructor&&e.call&&e.apply)}function y(e){return!!e&&e.nodeType===1&&e.nodeName.toUpperCase()==="IFRAME"}function b(e){var t=!1,n;for(n in i)if(i.hasOwnProperty(n)&&i[n]===e){t=!0;break}return t}function w(e){var t,n,r;for(t=0,n=f.length;t<n;t++){r=e(f[t]);if(r===!1)break}}function E(e){var t="",n,r,i;e.substr(0,2)==="//"&&(e=window.location.protocol+e),i=e.split("/");for(n=0,r=i.length;n<r;n++){if(!(n<3))break;t+=i[n],n<2&&(t+="/")}return t}function S(e){return e.contentWindow?e.contentWindow:e.contentDocument&&"parentWindow"in e.contentDocument?e.contentDocument.parentWindow:null}function x(e){var t=[],n;for(n in e)e.hasOwnProperty(n)&&t.push(e[n]);return t}function T(e,t,n){n.callbacks[e]=n.callbacks[e]||[],n.callbacks[e].push(t)}function N(e,t){var n=!0,r;return t.callbacks[e]=[],w(function(t){r=t.callbacks[e]||[];if(r.length)return n=!1,!1}),n}function C(e,t,n){var r=S(n),i,s;if(!r.postMessage)return!1;i=n.getAttribute("src").split("?")[0],s=JSON.stringify({method:e,value:t}),i.substr(0,2)==="//"&&(i=window.location.protocol+i),i=i.replace(/http:\/\/(w|wt).soundcloud.com/,"https://$1.soundcloud.com"),r.postMessage(s,i)}function k(e){var t;return w(function(n){if(n.instance===e)return t=n,!1}),t}function L(e){var t;return w(function(n){if(S(n.element)===e)return t=n,!1}),t}function A(e,t){return function(n){var r=g(n),i=k(this),s=!r&&t?n:null,o=r&&!t?n:null;return o&&T(e,o,i),C(e,s,i.element),this}}function O(e,t,n){var r,i,s;for(r=0,i=t.length;r<i;r++)s=t[r],e[s]=A(s,n)}function M(e,t,n){return e+"?url="+t+"&"+_(n)}function _(e){var t,n,r=[];for(t in e)e.hasOwnProperty(t)&&(n=e[t],r.push(t+"="+(t==="start_track"?parseInt(n,10):n?"true":"false")));return r.join("&")}function D(e,t,n){var r=e.callbacks[t]||[],i,s;for(i=0,s=r.length;i<s;i++)r[i].apply(e.instance,n);if(b(t)||t===o.READY)e.callbacks[t]=[]}function P(e){var t,n,r,i,s;try{n=JSON.parse(e.data)}catch(u){return!1}t=L(e.source),r=n.method,i=n.value;if(!t||H(e.origin)!==H(t.domain))return!1;r===o.READY&&(t?(t.isReady=!0,D(t,l),N(l,t)):a.push(e.source)),r===o.PLAY&&!t.playEventFired&&(t.playEventFired=!0),r===o.PLAY_PROGRESS&&!t.playEventFired&&(t.playEventFired=!0,D(t,o.PLAY,[i])),s=[],i!==undefined&&s.push(i),D(t,r,s)}function H(e){return e.replace(h,"")}var r=e("lib/api/events"),i=e("lib/api/getters"),s=e("lib/api/setters"),o=r.api,u=r.bridge,a=[],f=[],l="__LATE_BINDING__",c="http://wt.soundcloud.dev:9200/",h=/^http(?:s?)/,p,d,v;window.addEventListener?window.addEventListener("message",P,!1):window.attachEvent("onmessage",P),n.exports=v=function(e,t,n){m(e)&&(e=document.getElementById(e));if(!y(e))throw new Error("SC.Widget function should be given either iframe element or a string specifying id attribute of iframe element.");t&&(n=n||{},e.src=M(c,t,n));var r=L(S(e)),i,s;return r&&r.instance?r.instance:(i=a.indexOf(S(e))>-1,s=new p(e),f.push(new d(s,e,i)),s)},v.Events=o,window.SC=window.SC||{},window.SC.Widget=v,d=function(e,t,n){this.instance=e,this.element=t,this.domain=E(t.getAttribute("src")),this.isReady=!!n,this.callbacks={}},p=function(){},p.prototype={constructor:p,load:function(e,t){if(!e)return;t=t||{};var n=this,r=k(this),i=r.element,s=i.src,a=s.substr(0,s.indexOf("?"));r.isReady=!1,r.playEventFired=!1,i.onload=function(){n.bind(o.READY,function(){var e,n=r.callbacks;for(e in n)n.hasOwnProperty(e)&&e!==o.READY&&C(u.ADD_LISTENER,e,r.element);t.callback&&t.callback()})},i.src=M(a,e,t)},bind:function(e,t){var n=this,r=k(this);return r&&r.element&&(e===o.READY&&r.isReady?setTimeout(t,1):r.isReady?(T(e,t,r),C(u.ADD_LISTENER,e,r.element)):T(l,function(){n.bind(e,t)},r)),this},unbind:function(e){var t=k(this),n;t&&t.element&&(n=N(e,t),e!==o.READY&&n&&C(u.REMOVE_LISTENER,e,t.element))}},O(p.prototype,x(i)),O(p.prototype,x(s),!0)}),window.SC=window.SC||{},window.SC.Widget=require("lib/api/api")})()
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="header"><a href="index.html">
+  <img src="files for website/images/logo.png" alt="Insert Logo Here" name="Insert_logo" width="433" height="130" id="Insert_logo" style="background-color: #C6D580; display:block; float:left"/></a>
+  <img src="whiteBox.jpg" alt="" width="220" height="130" /> 
+  <img src="files for website/images/Twitter.png" width="51" height="130" alt="" /> 
+  <img src="files for website/images/facebook.png" width="51" height="130" alt="" /> 
+  <img src="files for website/images/P.png" width="51" height="130" alt="" /> 
+  <img src="files for website/images/linkedIn.png" width="51" height="130" alt="" /> 
+  <img src="files for website/images/wifi looking thing.png" width="51" height="130" alt="" />
+   
+   
+   
+   <table width="900"  height="45" id="navBar" bgcolor="#FF0000" align="center">
+  <tr>
+    <td>HOME</td>
+    <td>TECHNOLOGY</td>
+    <td>STARTUPS</td>
+    <td>APPLICATIONS</td>
+    <td>EVENTS</td>
+    <td>DESIGN</td>
+    <td>ENTREPRENEURSHIP</td>
+  </tr>
+</table>
+<form name="searchform" onSubmit="return dosearch();" style="text-align:center">
+Search: 
+<select name="sengines">
+<option value="http://www.google.com/search?q=" selected>Google</option>
+<option value="http://www.altavista.com/web/results?q=">Alta Vista</option>
+<option value="http://www.dogpile.com/info.dogpl/search/web/">Dogpile</option>
+<option value="http://search.yahoo.com/search?p=">Yahoo!</option>
+</select>
+For: 
+<input type="text" name="searchterms">
+<input type="submit" name="SearchSubmit" value="Search">
+</form>
+
+<center><a href="#source-code">View this page's fancy source code here!</a></center>
+
+<br />
+
+   <!-- end .header --></div>
+  <div class="sidebar1">
+    <ul class="nav">
+    <table width="270">
+  <tr>
+    <td width="35"><font color="cc3333"><strong>POPULAR</strong></font></td>
+    <td width="150"><font color="cc3333"><strong>POSTS</strong></font></td>
+  </tr>
+  <tr>
+    <td><img name="" src="files for website/images/PNGS/robotlovetop.png" width="70" height="70" alt="" /></td>
+    <td><strong><small>ROBOT LOVE AND THE<br />
+	BUSINESS OF FREE</small></strong></td>
+  </tr>
+  <tr>
+    <td><img name="" src="files for website/images/PNGS/facegramtop.png" width="70" height="70" alt="" /></td>
+    <td><strong><small>INSTAGRAM AQUIRED BY FACEBOOK</small></strong></td>
+  </tr>
+  <tr>
+    <td><img name="" src="files for website/images/PNGS/pics.png" width="70" height="70" alt="" /></td>
+    <td><strong><small>ALL IMAGES BY ILIAS<br />
+      SOUNAS</small></strong></td>
+  </tr>
+  <tr>
+    <td><img name="" src="files for website/images/PNGS/theme.png" width="70" height="70" alt="" /></td>
+    <td><strong><small>YEAP, THIS THEME IS<br />
+      RESPONSIVE TOO</small></strong></td>
+  </tr>
+</table>
+	<br />
+	<img name="" src="files for website/images/dotted line side bar right.png" width="265" height="3" alt="" />
+	<br />
+	<br />
+    <img name="" src="files for website/images/PNGS/news.png" width="259" height="121" alt="" />
+    <br />
+    <br />
+    <img name="" src="files for website/images/dotted line side bar right.png" width="265" height="3" alt="" />
+	<br />
+    <br />
+<table width="180" >
+  <tr>
+    <td><font color="cc3333"><strong>LATEST TWEETS</strong></font></td>
+  </tr>
+  <tr>
+    <td><p><small><font color="cc3333">@JohnPixie</font> Lets us know if we can help<br />
+      buddy!</small>
+    </p></td>
+  </tr>
+  <tr>
+    <td><p><small>New article: RobotLove, Stay tuned.</small></p></td>
+  </tr>
+  <tr>
+    <td><p><small>We would like to thank all of our readers<br />
+      for the awesome feedback we received!</small></p></td>
+  </tr>
+  <tr>
+    <td><p><small><font color="cc3333">Follow Us</font></small></td>
+  </tr>
+</table>
+	<img name="" src="files for website/images/dotted line side bar right.png" width="265" height="3" alt="" />
+	<br />
+    <br />
+    <img src="files for website/images/PNGS/sidebar done.png" alt="" name="" width="273" />
+    <!-- end .sidebar1 --></div>
+<div class="content">
+    <h1><img src="files for website/images/PNGS/JTmirrors.png" width="621" height="271" alt="" /></h1>
+    <p><small><font color="cc3333">MAY 26</font> by <font color="cc3333">JOHN PIXLE</font></small><br /><br />
+    <strong>THIS IS A SONG FOR THE BROKENHEARTED</strong></p>
+    <p><small>The goal of user reognq reongo;rengoerwgn;ojgdng;jdfkgn;ureng ijrwebguierbg;ijdvkjlsvb;jfbv;sdfijbvifdbviuabdivbivbreiuvbuebvidv<br />
+      ineivuerivbreiuvb.</small>
+    </p>
+    
+    
+  <h2><img name="" src="files for website/images/long dotted line.png" width="621" height="3" alt="" />
+    <br />
+    <font color="cc3333">LATEST POSTS</font>   
+   				  <img src="files for website/images/white space arrows.png" width="330" height="34" alt="" />
+   				  <img src="files for website/images/left arrow.png" width="40" height="40" alt="" />
+                  <img src="files for website/images/right arrowe.png" width="40" height="40" alt="" />
+                 <img name="" src="files for website/images/long dotted line.png" width="621" height="3" alt="" />
+                 </h2>
+    <br />            
+  <p><img src="files for website/images/PNGS/startup.png" width="300" height="150" alt="" /> &nbsp; &nbsp; <img src="files for website/images/PNGS/facegram2.png" width="300" height="150" alt="" /></p>
+    <table width="650" height="166">
+      <tr>
+        <td width="381"><small><font color="cc3333">MAY 26</font> by <font color="cc3333">JOHN PIXLE</font></small></td>
+        <td width="367"><small><font color="cc3333">MAY 26</font> by <font color="cc3333">JOHN PIXLE</font></small></td>
+      </tr>
+      <tr>
+        <td><strong>IF YOU HAVE A STARTUP WE<br />
+        KNOW HOW TO BUY IT</strong><br />
+        </td>
+        <td><strong>INSTAGRAM AQUIRED BY<br />
+        FACEBOOK</strong></td>
+      </tr>
+      <tr>
+        <td><small>Facebook jsndflkvjnfkvnfkjnfj bfdvbkjsbvjkbhvsjfdvhbfjbvjfdjb<br />
+        isbvibdivbvbvibervibrekvodf...          </small></td>
+        <td><small>jndvkjlsndvkjrvnjkjvnsdkvnjfdkjnv sdkbfaskdbfshfbsjhbfasjbfjbdfajsbfj<br />
+        jdsfbasdjbfjsdhbfjshbfsbbfsafsdflb...          </small></td>
+      </tr>
+      <tr>
+        <td><img src="files for website/images/read more button.png" width="80" height="31" alt="" /></td>
+        <td><img src="files for website/images/read more button.png" width="80" height="31" alt="" /></td>
+      </tr>
+    </table>
+    <br />
+    <p><img src="files for website/images/PNGS/appleTech.png" width="300" height="150" alt="" /> &nbsp; &nbsp; <img src="files for website/images/PNGS/wordpress.png" width="300" height="150" alt="" /></p>
+    <table width="650" height="166">
+      <tr>
+        <td width="381"><small><font color="cc3333">MAY 26</font> by <small><font color="cc3333">JOHN PIXLE</font></td>
+        <td width="367"><small><font color="cc3333">MAY 26</font> by <small><font color="cc3333">JOHN PIXLE</font></td>
+      </tr>
+      <tr>
+        <td><p><strong>APPLE'S LATEST DISCOVERY<br />
+          IN THE TECH INDUSTRY</strong><br />
+        </p></td>
+        <td><strong>AN INSIDER'S VIEW IN THE<br />
+        WORDPRESS THEME MARKET        <br />
+        </strong></td>
+      </tr>
+      <tr>
+        <td><small>Facebook jsndflkvjnfkvnfkjnfj<br />
+        bfdvbkjsbvjkbhvsjfdvhbfjbvjfdjb<br />
+        isbvibdivbvbvibervibrekvodf...          <br /></small></td>
+        <td><small>jndvkjlsndvkjrvnjkjvnsdkvnjfdkjnv<br />
+        sdkbfaskdbfshfbsjhbfasjbfjbdfajsbfj<br />
+        jdsfbasdjbfjsdhbfjshbfsbbfsafsdflb...          <br /></small></td>
+      </tr>
+      <tr>
+        <td><img src="files for website/images/read more button.png" width="80" height="31" alt="" /></td>
+        <td><img src="files for website/images/read more button.png" width="80" height="31" alt="" /></td>
+      </tr>
+    </table>
+    <br />
+    <h2><small><font color="cc3333">MOST POPULAR</font>   
+    				<img name="" src="files for website/images/white space arrows.png" width="320" height="34" alt="" />
+    				<img name="" src="files for website/images/left arrow.png" width="40" height="40" alt="" />
+    				<img name="" src="files for website/images/right arrowe.png" width="40" height="40" alt="" />
+                    </h2>
+                    
+    <table width="150" style="float: left;">
+      <tr>
+        <td><img src="files for website/images/PNGS/instabook.png" width="140" height="140" alt="" /></td>
+      </tr>
+      <tr>
+        <td><img src="files for website/images/PNGS/tablets.png" width="140" height="140" alt="" /></td>
+      </tr>
+      <tr>
+        <td><img src="files for website/images/PNGS/hologram.png" width="140" height="140" alt="" /></td>
+      </tr>
+    </table>
+    <table width="500">
+      <tr>
+        <td><small><font color="cc3333">MAY 26</font> by <small><font color="cc3333">JOHN PIXLE</font></td>
+      </tr>
+      <tr>
+        <td><h2><strong>INSTAGRAM AQUIRED BY FACEBOOK</strong></h2></td>
+      </tr>
+      <tr>
+        <td>Facebook has just finished a huge deal to acquire the well known<br />
+photo sharing app Instagram for approximately $1 billion...</td>
+      </tr>
+      <tr>
+        <td><img name="" src="files for website/images/read more button.png" width="80" height="31" alt="" /></td>
+      </tr>
+      <tr>
+        <td><small><font color="cc3333">MAY 26</font> <small><font color="cc3333">by JOHN PIXLE</font></small></td>
+      </tr>
+      <tr>
+        <td><h2><strong>NO MORE MONEY FOR TABLETS</strong></h2></td>
+      </tr>
+      <tr>
+        <td>Facebook has just finished a huge deal to acquire the well known<br />
+photo sharing app Instagram for approximately $1 billion...</td>
+      </tr>
+      <tr>
+        <td><img name="" src="files for website/images/read more button.png" width="80" height="31" alt="" /></td>
+      </tr>
+      <tr>
+        <td><small><font color="cc3333">MAY 26</font> by <small><font color="cc3333">JOHN PIXLE</font></td>
+      </tr>
+      <tr>
+        <td><h2><strong>WHAT ABOUT HOLOGRAM INTERFACES?</strong></h2></td>
+      </tr>
+      <tr>
+        <td>Facebook has just finished a huge deal to acquire the well known<br />
+photo sharing app Instagram for approximately $1 billion...</td>
+      </tr>
+      <tr>
+        <td><img name="" src="files for website/images/read more button.png" width="80" height="31" alt="" /></td>
+      </tr>
+    </table>
+    <br />
+    <br />
+  <!-- end .content --></div>
+  <div class="footer">
+  <table width="968" id="padding">
+  <tr>
+    <td>&nbsp;&nbsp;<font color="ffffff"><strong>FEATURED POSTS</strong></font></td>
+    <td><font color="ffffff"><strong>FEATURED VIDEO</strong></font></td>
+    <td><font color="ffffff"><strong>A TEXT WIDGET</strong></font></td>
+  </tr>
+</table>
+
+<div id="main">
+    <table>
+        <tr>
+            <td width="280" >
+                <table id="tbSA" class="tb">
+                    <tr>
+                    	<td><img src="files for website/images/robot love.png" width="70" height="70" alt="" /></td>
+                         <td><font color="ffffff"><small>ROBOT LOVE AND THE<br />
+     							BUSINESS OF FREE</small></font></td>
+                    </tr>
+                    <tr>
+                    	<td><img src="files for website/images/instagram.png" width="70" height="70" alt="" /></td>
+                        <td><font color="ffffff"><small>INSTAGRAM AQUIRED<br />
+     							BY FACEBOOK</font></small></td>
+                    </tr>
+                    
+                </table>
+            </td>
+            <td width="350">
+                <table id="tbShops" class="tb" cellpadding="10px">
+                    <tr>
+                    	<td><video width="250" height="250" controls>
+                        	<source src="files for website/video/fashion.mp4" type="video/mp4">
+                            </video></td>
+                    </tr>
+                 
+                </table>
+           	<td width="250">
+                <table>
+                    <tr>
+                    	<td width="500"><font color="ffffff">For the latest news about fashion,text, celebrities, and anything interesting; stay with us here at Zend - a Styling Blog</font></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>
